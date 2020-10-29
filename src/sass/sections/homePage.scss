@@ -1,0 +1,125 @@
+header {
+  font-family: 'Roboto', sans-serif;
+  color: #372c48;
+}
+
+.header-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*.main-menu {
+	background-color: #77C1BB;
+	display: flex;
+	justify-content: space-around;
+}
+*/
+.header-main-menu {
+  padding: 26px 0 40px;
+  display: flex;
+  background-color: #77c1bb;
+}
+
+.menu-list {
+  margin-left: auto;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-menu__item a {
+  text-transform: uppercase;
+
+  padding: 15px 30px;
+}
+
+.main-menu__item:hover a {
+  color: #fff;
+}
+
+.header-search-form {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 1px 5px 9px -6px black;
+}
+
+.header-search-form input {
+  width: 100%;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid grey;
+}
+
+.library-menu {
+  display: none;
+}
+
+/*---------Список Фильмов из фетча------------*/
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.movie-list__item {
+  position: relative;
+}
+
+.movie-list__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.movie-list__link:hover::after {
+  opacity: 0;
+}
+
+.movie-list__link:hover .movie-list__text {
+  opacity: 0;
+}
+
+.movie-list__link:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  background-image: linear-gradient(to top, #000, transparent);
+  opacity: 0.7;
+  border-radius: 10px;
+  transition: opacity 0.4s ease;
+}
+
+.movie-list__image {
+  border-radius: 10px;
+}
+
+.movie-list__text {
+  transition: all 0.4s ease;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #fff;
+  z-index: 10;
+}
+
+/* text colors */
+
+/* $header-inactive-text: rgba(55, 44, 72, 0.7);#372C48 + полупрозрачность 70%
+$primary-text-color: #372C48;
+$secondary-text-color: #A6A3AC;
+$main-navbutton-text-color: #556270;
+*/
+/* elements colors */
+/*
+$primary-background-color: #FFFFFF;
+$secondary-background-color: #77C1BB;
+$main-navbutton-color: #FFFFFF +linear gradient
+$bottom-button-color: #8ECBC6; на самом деле #77C1BB + свечение
+$header-input-background-color: #F3F6F6;
+$header-input-bottom-border: #9C99A5;*/
