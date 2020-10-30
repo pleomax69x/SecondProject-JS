@@ -1,5 +1,4 @@
 header {
-  font-family: 'Roboto', sans-serif;
   color: #372c48;
 }
 
@@ -8,12 +7,12 @@ header {
   flex-direction: column;
   justify-content: center;
 }
+
 /*.main-menu {
-	background-color: #77C1BB;
-	display: flex;
-	justify-content: space-around;
+
 }
 */
+
 .header-main-menu {
   padding: 26px 0 40px;
   display: flex;
@@ -58,6 +57,7 @@ header {
 /*---------Список Фильмов из фетча------------*/
 
 .movie-list {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -65,12 +65,12 @@ header {
 }
 
 .movie-list__item {
+  flex-basis: 100%;
   position: relative;
 }
 
-.movie-list__item:not(:last-child) {
-  margin-bottom: 10px;
-}
+// .movie-list__link {
+// }
 
 .movie-list__link:hover::after {
   opacity: 0;
@@ -100,12 +100,47 @@ header {
 }
 
 .movie-list__text {
+  font-weight: 500;
+  line-height: 14.99px;
+  font-size: 12.49px;
   transition: all 0.4s ease;
   position: absolute;
   bottom: 10px;
   left: 10px;
   color: #fff;
   z-index: 10;
+}
+
+@include screen('mobile') {
+  .movie-list__item:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+@include screen('tablet') {
+  .movie-list__item {
+    flex-basis: 49%;
+    justify-content: space-between;
+  }
+
+  .movie-list__text {
+    font-size: 14.5px;
+    line-height: 17.4px;
+  }
+
+  .movie-list__item:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 15px;
+  }
+}
+
+@include screen('desktop') {
+  .movie-list__text {
+    font-size: 19.5px;
+    line-height: 23.42px;
+  }
+  .movie-list__item:not(:nth-last-child(-n + 2)) {
+    margin-bottom: 30px;
+  }
 }
 
 /* text colors */

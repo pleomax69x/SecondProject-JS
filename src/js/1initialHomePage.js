@@ -1,5 +1,5 @@
 'use strict'
-// import movieListItemTpl from './templates/movie-list-item.hbs';
+
 //	Глобальные переменные
 const apiKey = 'a983975bd7ff651e1c601fb29f627930';
 const renderFilms = [];
@@ -23,8 +23,7 @@ function createCardFunc(imgPath, filmTitle, movieId){
 
 		const imgRef = document.createElement("img");
 		imgRef.classList.add("movie-list__image");
-		imgRef.src = `https://image.tmdb.org/t/p/w500${imgPath}`;
-		// imgRef.src = 'backdrop_w500_86L8wqGMDbwURPni2t7FQ0nDjsH.jpg';
+		imgRef.src = `https://image.tmdb.org/t/p/original${imgPath}`;
 		// imgRef.dataset.source = imgPath;
 		imgRef.alt = filmTitle;
 
@@ -38,16 +37,12 @@ function createCardFunc(imgPath, filmTitle, movieId){
 		fragment.appendChild(listItemRef);
 
 		return fragment;
-	//--------------------------------------------------------------
-	// const markup = movieListItemTpl(imgPath, filmTitle, movieId);
-	// movieListRef.insertAdjacentHTML('afterbegin', markup);
 	// создаёт li согласно макета и вешает на неё слушателем функцию ActiveDetailsPage(movieId, itsLibraryFilm = false)
 };
 
 function fetchPopularMoviesList (pageNumber){
 	const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ru-Ru&page=${pageNumber}`;
 	
-	// const url = './Get_popular_movie.json';
 	return fetch(url).then(res=>res.json()).then(({results})=>{
 
 		const listMarkup = document.createDocumentFragment();
@@ -63,7 +58,6 @@ function fetchPopularMoviesList (pageNumber){
 
 function fetchGenres () {
 	const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}`;
-	// const url = './Get_genres.json';
 
 	return fetch(url).then(res=>res.json()).then((results)=>{
 		results.genres.forEach(item=> genres.push(item))
