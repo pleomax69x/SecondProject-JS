@@ -70,3 +70,4 @@ function fetchGenres() {
 
 fetchPopularMoviesList(pageNumber);
 fetchGenres();
+
