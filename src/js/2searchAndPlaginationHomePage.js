@@ -1,3 +1,5 @@
+const form = document.querySelector('#homePage__search');
+const input = document.querySelector('#homePage__search-input');
 
 const pagination = document.getElementById('homePage__pagination');
 const prevBtn = pagination.querySelector('[data-action = "prev"]');
@@ -105,4 +107,3 @@ function fetchFilms(inputValue, pageNumber) {
 }
 
 form.addEventListener('submit', searchFilms);
-
