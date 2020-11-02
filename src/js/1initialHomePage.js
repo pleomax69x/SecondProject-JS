@@ -13,7 +13,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
 
   const listItemRef = document.createElement('li');
   listItemRef.classList.add('movie-list__item');
-  listItemRef.addEventListener('click', movieId => {
+  listItemRef.addEventListener('click', () => {
     activeDetailsPage(movieId, false);
   });
 
