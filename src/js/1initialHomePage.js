@@ -48,8 +48,11 @@ function fetchPopularMoviesList(pageNumber) {
     .then(({ results }) => {
       const listMarkup = document.createDocumentFragment();
 
-      results.forEach(({ backdrop_path, title, id }) => {
-        listMarkup.appendChild(createCardFunc(backdrop_path, title, id));
+      results.forEach(item => {
+        renderFilms.push(item);
+        listMarkup.appendChild(
+          createCardFunc(item.backdrop_path, item.title, item.id),
+        );
       });
 
       movieListRef.append(listMarkup);
@@ -70,4 +73,3 @@ function fetchGenres() {
 
 fetchPopularMoviesList(pageNumber);
 fetchGenres();
-

@@ -55,7 +55,9 @@ function activeLibraryPage() {
   homeRef.classList.remove('selectPage');
 
   // drawQueueFilmList();
-  queueRef.classList.add('active');
+
+  //  пересмотреть скорее всего отпала надобность
+  // queueRef.classList.add('active');
 
   // watchedRef.addEventListener('click', fShowWatced);
   // queueRef.addEventListener('click', fShowQueue);
