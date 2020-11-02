@@ -85,19 +85,19 @@
   }
 }
 
-
-
 .homePage {
   padding-bottom: 24px;
 }
 
-.homePage__list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 18px;
-}
+// уточнить и удалить или оставить
+
+// .homePage__list {
+//   list-style: none;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin-bottom: 18px;
+// }
 
 .homePage__items {
   width: 298px;
@@ -210,7 +210,6 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
-
 
   .homePage__items {
     width: 348px;

@@ -38,10 +38,12 @@
   font-weight: 500;
   font-family: 'Roboto';
   visibility: hidden;
+  display: none;
 }
 @include screen('tablet') {
   .site-logo__text {
     visibility: visible;
+    display: contents;
   }
 }
 
