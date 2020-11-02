@@ -68,7 +68,7 @@ function activeLibraryPage() {
   // 3 addRemoveWatched
   // 4 addRemoveQueue
 }
-
+//  movieId, bool
 function activeDetailsPage(movieId, bool) {
   homePageRef.classList.add('hide');
   filmLibraryRef.classList.add('hide');
@@ -77,6 +77,7 @@ function activeDetailsPage(movieId, bool) {
   // selectFilm заполнить обьектом в зависимости либ или вотчед
   selectFilm.movieId = movieId;
   selectFilm.itsLibraryFilm = bool;
+  console.log(movieId);
 
   showDetails(selectFilm);
 

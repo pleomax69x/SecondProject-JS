@@ -13,9 +13,14 @@ function createCardFunc(imgPath, filmTitle, movieId) {
 
   const listItemRef = document.createElement('li');
   listItemRef.classList.add('movie-list__item');
-  listItemRef.addEventListener('click', movieId => {
+  // listItemRef.addEventListener('click', movieId => {
+  //   activeDetailsPage(movieId, false);
+  // });
+  listItemRef.addEventListener('click', () => {
     activeDetailsPage(movieId, false);
   });
+
+  // listItemRef.addEventListener('click', activeDetailsPage(movieId, false));
 
   const linkRef = document.createElement('a');
   linkRef.classList.add('movie-list__link');
@@ -48,8 +53,11 @@ function fetchPopularMoviesList(pageNumber) {
     .then(({ results }) => {
       const listMarkup = document.createDocumentFragment();
 
-      results.forEach(({ backdrop_path, title, id }) => {
-        listMarkup.appendChild(createCardFunc(backdrop_path, title, id));
+      results.forEach(item => {
+        renderFilms.push(item);
+        listMarkup.appendChild(
+          createCardFunc(item.backdrop_path, item.title, item.id),
+        );
       });
 
       movieListRef.append(listMarkup);
