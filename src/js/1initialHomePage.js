@@ -46,6 +46,7 @@ function fetchPopularMoviesList(pageNumber) {
   return fetch(url)
     .then(res => res.json())
     .then(({ results }) => {
+      console.log(results);
       const listMarkup = document.createDocumentFragment();
 
       results.forEach(item => {

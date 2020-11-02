@@ -1,12 +1,14 @@
+const { get } = require('browser-sync');
+
 //
 const homeRef = document.querySelector('.js-home');
 const libraryRef = document.querySelector('.js-library');
 const logoRef = document.querySelector('.site-logo');
 
 // три секции main
-const homePageRef = document.querySelector('.homePage');
-const filmLibraryRef = document.querySelector('.filmLibrary');
-const detailsPageRef = document.querySelector('.detailsPage');
+const homePageRef = document.querySelector('#homePage_show');
+const filmLibraryRef = document.querySelector('.js-filmLibrary');
+const detailsPageRef = document.querySelector('#js-detailsPage');
 
 // кнопки watched and queue
 const watchedRef = document.querySelector('.js-watched');
@@ -79,6 +81,9 @@ function activeDetailsPage(movieId, bool) {
   // selectFilm заполнить обьектом в зависимости либ или вотчед
   selectFilm.movieId = movieId;
   selectFilm.itsLibraryFilm = bool;
+
+  // a983975bd7ff651e1c601fb29f627930;
+  // 724989
 
   showDetails(selectFilm);
 
