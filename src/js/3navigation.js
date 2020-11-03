@@ -54,7 +54,6 @@ function activeLibraryPage() {
   // drawQueueFilmList();
 
   // сделал 5 учасник
-
   // сделать
   // добавляет кнопке списка очереди фильмов
   // эффект выбранной с помощью класса
@@ -62,10 +61,9 @@ function activeLibraryPage() {
   // сделать
   // также вешает слушателей на кнопки
   // показа очереди фильмов и просмотренных фильмов
+  // перенести в секцию либ
   // btnWatched.addEventListener('click', drawWatchedFilmList);
   // btnQueue.addEventListener('click', drawQueueFilmList);
-
-  // проверить и пересмотреть далее
 
   // delete 4 listener
   // pagination 1
@@ -83,18 +81,17 @@ function activeDetailsPage(movieId, bool) {
   detailsPageRef.classList.remove('hide');
 
   // selectFilm заполнить обьектом в зависимости либ или вотчед
-  // selectFilm.movieId = movieId;
-  // selectFilm.itsLibraryFilm = bool;
 
   const selectFilm = renderFilms.find(el => el.id === movieId);
   selectFilm.itsLibraryFilm = bool;
   console.log(selectFilm);
-  showDetails(selectFilm);
 
   // сделать
   // слушатель на кнопки добавить/удалить
-  // addRemoveWatchedRef.addEventListener('click', addRemove);
-  // addRemoveQueueRef.addEventListener('click', addRemove);
+  addWatchedButton.addEventListener('click', toggleToWatched);
+  addQueueButton.addEventListener('click', toggleToQueue);
+
+  showDetails(selectFilm);
 
   // remove 4 listener
   // pagination 1

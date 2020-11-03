@@ -4,8 +4,9 @@ const addWatchedButton = document.querySelector('#js-addWatchedButton');
 function toggleToQueue() {
   let filmsQueueArr = [];
   let localStorageData = localStorage.getItem('filmsQueue');
+
   if (localStorageData !== null) {
-    filmsQueueArr.push(...JSON.parse(localStorageData));
+    filmsQueueArr.push(JSON.parse(localStorageData));
   }
   if (filmsQueueArr.find(el => el.id === selectFilm.id)) {
     filmsQueueArr = filmsQueueArr.filter(el => el.id !== selectFilm.id);
@@ -34,6 +35,7 @@ function toggleToWatched() {
 function showDetails(selectFilm) {
   // let img = document.querySelector('#js-detailsImg');
   let img = document.querySelector('.detailsImg');
+  console.log(img);
 
   img.setAttribute(
     'src',
