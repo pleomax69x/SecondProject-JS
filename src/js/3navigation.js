@@ -82,16 +82,19 @@ function activeDetailsPage(movieId, bool) {
 
   // selectFilm заполнить обьектом в зависимости либ или вотчед
 
-  const selectFilm = renderFilms.find(el => el.id === movieId);
+  selectFilm = renderFilms.find(el => el.id === movieId);
   selectFilm.itsLibraryFilm = bool;
   console.log(selectFilm);
 
   // сделать
   // слушатель на кнопки добавить/удалить
+  // addWatchedButton.addEventListener('click', toggleToWatched());
+  // addQueueButton.addEventListener('click', toggleToQueue());
+  console.log(selectFilm);
+  showDetails(selectFilm);
+
   addWatchedButton.addEventListener('click', toggleToWatched);
   addQueueButton.addEventListener('click', toggleToQueue);
-
-  showDetails(selectFilm);
 
   // remove 4 listener
   // pagination 1
