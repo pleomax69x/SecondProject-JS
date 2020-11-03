@@ -32,11 +32,10 @@ function toggleToWatched() {
 }
 
 function showDetails(selectFilm) {
-  let img = document.querySelector('#js-detailsImg');
-  console.log(selectFilm);
-  img.setAttribute(
+  let img = document.querySelector('.detailsImg');
+      img.setAttribute(
     'src',
-    `https://image.tmdb.org/t/p/w500/${selectFilm.poster_path}`,
+    `https://image.tmdb.org/t/p/w500${selectFilm.poster_path}`,
   );
   let title = document.querySelector('#js-detailsTitle');
   title.textContent = selectFilm.title;
