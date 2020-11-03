@@ -42,7 +42,7 @@ const drawQueueFilmList = () => {
   const queueFilms = localStorage.getItem('filmsQueue');
   const parsedQueueFilms = JSON.parse(queueFilms);
 
-  if ((queueFilms !== null) & (parsedQueueFilms.length !== 0)) {
+  if (queueFilms !== null && parsedQueueFilms.length !== 0) {
     parsedQueueFilms.map(({ id, backdrop_path, title, vote_average }) => {
       fragment.appendChild(
         createLibraryCardFunc(id, backdrop_path, title, vote_average),
@@ -67,7 +67,7 @@ const drawWatchedFilmList = () => {
   const watchedFilms = localStorage.getItem('filmsWatched');
   const parsedWatchedFilms = JSON.parse(watchedFilms);
 
-  if ((watchedFilms !== null) & (parsedWatchedFilms.length !== 0)) {
+  if (watchedFilms !== null && parsedWatchedFilms.length !== 0) {
     parsedWatchedFilms.map(({ id, backdrop_path, title, vote_average }) => {
       fragment.appendChild(
         createLibraryCardFunc(backdrop_path, title, id, vote_average),

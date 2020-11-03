@@ -32,6 +32,7 @@ function activeHomePage() {
   // убрать со 2 файла 19 строка
 
   // слушатель на прев и некст из пагинации
+  // сделано в 1 файле
   //   prevRef.addEventListener('click', call_prev_func);
   //   nextRef.addEventListener('click', call_next_func);
 
@@ -51,9 +52,7 @@ function activeLibraryPage() {
   homeRef.classList.remove('selectPage');
 
   // btnQueue.classList.add('active-btn');
-  // drawQueueFilmList();
-
-  // сделал 5 учасник
+  drawQueueFilmList();
 
   // сделать
   // добавляет кнопке списка очереди фильмов
@@ -62,10 +61,9 @@ function activeLibraryPage() {
   // сделать
   // также вешает слушателей на кнопки
   // показа очереди фильмов и просмотренных фильмов
-  // btnWatched.addEventListener('click', drawWatchedFilmList);
-  // btnQueue.addEventListener('click', drawQueueFilmList);
 
-  // проверить и пересмотреть далее
+  btnWatched.addEventListener('click', drawWatchedFilmList);
+  btnQueue.addEventListener('click', drawQueueFilmList);
 
   // delete 4 listener
   // pagination 1
@@ -83,18 +81,16 @@ function activeDetailsPage(movieId, bool) {
   detailsPageRef.classList.remove('hide');
 
   // selectFilm заполнить обьектом в зависимости либ или вотчед
-  // selectFilm.movieId = movieId;
-  // selectFilm.itsLibraryFilm = bool;
 
-  const selectFilm = renderFilms.find(el => el.id === movieId);
-  selectFilm.itsLibraryFilm = bool;
-  console.log(selectFilm);
+  selectFilm = renderFilms.find(el => el.id === movieId);
+  // selectFilm.itsLibraryFilm = bool;
+  // ????????
+
   showDetails(selectFilm);
 
-  // сделать
   // слушатель на кнопки добавить/удалить
-  // addRemoveWatchedRef.addEventListener('click', addRemove);
-  // addRemoveQueueRef.addEventListener('click', addRemove);
+  addWatchedButton.addEventListener('click', toggleToWatched);
+  addQueueButton.addEventListener('click', toggleToQueue);
 
   // remove 4 listener
   // pagination 1
@@ -110,9 +106,6 @@ homeRef.addEventListener('click', activeHomePage);
 libraryRef.addEventListener('click', activeLibraryPage);
 
 activeHomePage();
-// activeLibraryPage();
-// activeDetailsPage();
-// console.log(filmLibraryRef);
 
 const btnUpRef = document.querySelector('.btn_up');
 btnUpRef.addEventListener('click', goUp);

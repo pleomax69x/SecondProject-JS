@@ -60,7 +60,8 @@ function searchFilms(evt) {
   errorMessage.hidden = true;
   inputValue = input.value;
   if (inputValue === '') {
-    jsList.innerHTML = '';
+    // jsList.innerHTML = '';
+    movieListRef.innerHTML = '';
     fetchPopularMoviesList();
   } else {
     fetchFilms(inputValue, pageNumber);
@@ -90,7 +91,8 @@ function fetchFilms(inputValue, pageNumber) {
         fetchPopularMoviesList();
       }
 
-      jsList.innerHTML = '';
+      // jsList.innerHTML = '';
+      movieListRef.innerHTML = '';
       arr.forEach(el => {
         if (el.backdrop_path != null) {
           createCardFunc(el.backdrop_path, el.title, el.id);
