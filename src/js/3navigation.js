@@ -32,6 +32,7 @@ function activeHomePage() {
   // убрать со 2 файла 19 строка
 
   // слушатель на прев и некст из пагинации
+  // сделано в 1 файле
   //   prevRef.addEventListener('click', call_prev_func);
   //   nextRef.addEventListener('click', call_next_func);
 
@@ -51,9 +52,8 @@ function activeLibraryPage() {
   homeRef.classList.remove('selectPage');
 
   // btnQueue.classList.add('active-btn');
-  // drawQueueFilmList();
+  drawQueueFilmList();
 
-  // сделал 5 учасник
   // сделать
   // добавляет кнопке списка очереди фильмов
   // эффект выбранной с помощью класса
@@ -61,9 +61,9 @@ function activeLibraryPage() {
   // сделать
   // также вешает слушателей на кнопки
   // показа очереди фильмов и просмотренных фильмов
-  // перенести в секцию либ
-  // btnWatched.addEventListener('click', drawWatchedFilmList);
-  // btnQueue.addEventListener('click', drawQueueFilmList);
+
+  btnWatched.addEventListener('click', drawWatchedFilmList);
+  btnQueue.addEventListener('click', drawQueueFilmList);
 
   // delete 4 listener
   // pagination 1
@@ -83,16 +83,12 @@ function activeDetailsPage(movieId, bool) {
   // selectFilm заполнить обьектом в зависимости либ или вотчед
 
   selectFilm = renderFilms.find(el => el.id === movieId);
-  selectFilm.itsLibraryFilm = bool;
-  console.log(selectFilm);
+  // selectFilm.itsLibraryFilm = bool;
+  // ????????
 
-  // сделать
-  // слушатель на кнопки добавить/удалить
-  // addWatchedButton.addEventListener('click', toggleToWatched());
-  // addQueueButton.addEventListener('click', toggleToQueue());
-  console.log(selectFilm);
   showDetails(selectFilm);
 
+  // слушатель на кнопки добавить/удалить
   addWatchedButton.addEventListener('click', toggleToWatched);
   addQueueButton.addEventListener('click', toggleToQueue);
 
@@ -110,9 +106,6 @@ homeRef.addEventListener('click', activeHomePage);
 libraryRef.addEventListener('click', activeLibraryPage);
 
 activeHomePage();
-// activeLibraryPage();
-// activeDetailsPage();
-// console.log(filmLibraryRef);
 
 const btnUpRef = document.querySelector('.btn_up');
 btnUpRef.addEventListener('click', goUp);

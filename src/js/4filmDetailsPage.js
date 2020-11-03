@@ -6,7 +6,7 @@ function toggleToQueue() {
   let localStorageData = localStorage.getItem('filmsQueue');
   console.log(selectFilm);
   if (localStorageData !== null) {
-    filmsQueueArr.push(JSON.parse(localStorageData));
+    filmsQueueArr.push(...JSON.parse(localStorageData));
   }
   if (filmsQueueArr.find(el => el.id === selectFilm.id)) {
     filmsQueueArr = filmsQueueArr.filter(el => el.id !== selectFilm.id);
@@ -70,8 +70,7 @@ function showDetails(selectFilm) {
 
 function monitorButtonStatusText() {
   let localStorageFilmsQueue = localStorage.getItem('filmsQueue');
-  console.log(localStorageFilmsQueue);
-  console.log(selectFilm);
+
   localStorageFilmsQueue === null
     ? (addQueueButton.textContent = 'Add to queue')
     : JSON.parse(localStorageFilmsQueue).find(el => el.id === selectFilm.id)
