@@ -1,0 +1,99 @@
+.main__detailsPages {
+    padding: 24px;
+  }
+.main__imgContainer {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.main__detailsContainer {
+    width: 100%;
+}
+
+.main__detailsTitle{
+    margin-bottom: 20px;
+}
+.main__detailsTable{
+    width: 100%;
+    margin-bottom: 36px;
+}
+.main__detailsTextRow{
+    width: 100%;
+    font-weight: 300;
+    line-height:2rem;
+}
+.main__detailsTextCell {
+    padding-left: 14px;
+}
+.main__detailsTextRow:nth-child(odd) {
+    background-color: #addad6;    
+}   
+.main__detailsAbout{
+    margin-bottom: 20px;
+}
+.main__detailsAboutText {
+    font-weight: 300;
+    line-height: 1.2;
+}
+.main__addList {
+    display: none;
+}
+
+@include screen('tablet') {
+.main__detailsContainer {
+    display: flex;
+    justify-content: space-between;
+}
+.main__imgContainer {
+    margin-right: 24px;
+    width: 168%;
+    }
+.main__textContainer {
+    padding-bottom: 122px;
+    }
+
+.main__detailsTitle {
+    font-size: 20px;
+    font-weight: 100;
+    color: rgb(55, 44, 72);
+    line-height: 1.2; 
+    }
+.main__detailsAboutText {
+    margin-bottom: 34px;
+   }
+.main__addList {
+    display: flex;
+    // justify-content: start;
+   }
+.main___addButton {
+   border: none;
+    border-radius: 30px;
+    outline: none;
+    background-color: inherit;
+    margin-right: 14px;
+    padding-bottom: 12px;
+    padding-right: 12px;
+    
+    }
+.main___addButton:hover{
+    cursor: pointer;
+    border: 2px solid #77c1bb;
+        }
+.icon {
+    width: 30px;
+    height: 30px;
+    padding-top: 15px;
+    fill:  #77c1bb;
+}
+}
+@include screen('desktop') {
+    .main__detailsPages {
+        padding: 26px 44px 30px 66px;
+    }
+
+    .main__detailsContainer {
+        width: 918px;
+    }
+    .main__imgContainer {
+        width: 168%;
+}
+}

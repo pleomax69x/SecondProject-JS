@@ -49,9 +49,10 @@ function fetchPopularMoviesList(pageNumber) {
       const listMarkup = document.createDocumentFragment();
 
       results.forEach(item => {
-
-        renderFilms.push(item)
-        listMarkup.appendChild(createCardFunc(item.backdrop_path, item.title, item.id));
+        renderFilms.push(item);
+        listMarkup.appendChild(
+          createCardFunc(item.backdrop_path, item.title, item.id),
+        );
       });
 
       movieListRef.append(listMarkup);

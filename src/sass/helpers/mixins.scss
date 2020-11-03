@@ -7,7 +7,7 @@
 
 @mixin screen($size) {
   $desktop-xl: '(min-width: 1680px)'; // Переменная со значением desktop-xl размера
-  $desktop: '(min-width: 1280px)'; // Переменная со значением desktop размера
+  $desktop: '(min-width: 1024px)'; // Переменная со значением desktop размера
   $tablet: '(min-width: 768px)'; // Переменная со значением tablet размера
   $mobile: '(max-width: 767px)'; // Переменная со значением mobile размера
   $tablet-to-desktop: '(min-width: 768px) and (max-width: 1279px)';
@@ -33,4 +33,5 @@
       @content;
     }
   }
+
 }
