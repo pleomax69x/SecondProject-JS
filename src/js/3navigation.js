@@ -1,6 +1,3 @@
-const { get } = require('browser-sync');
-
-//
 const homeRef = document.querySelector('.js-home');
 const libraryRef = document.querySelector('.js-library');
 const logoRef = document.querySelector('.site-logo');
@@ -10,22 +7,16 @@ const homePageRef = document.querySelector('#homePage_show');
 const filmLibraryRef = document.querySelector('.js-filmLibrary');
 const detailsPageRef = document.querySelector('#js-detailsPage');
 
-// кнопки watched and queue
-const watchedRef = document.querySelector('.js-watched');
-const queueRef = document.querySelector('.js-queue');
+// кнопки watched and queue с 5
+// btnWatched
+// btnQueue
 
-// пагинация потом удалить была сделана ранее
-// const prevRef = document.querySelector('prev');
-// const nextRef = document.querySelector('next');
-// prevBtn;
-// nextBtn;
-
-//добавить удалить в очередь !!!!!!!!!!!!!!!!!! добавить селектор
-// const addRemoveWatchedRef = document.querySelector('!!!!!!');
-// const addRemoveQueueRef = document.querySelector('!!!!!!');
+//добавить удалить в очередь !!!!!!!!!!!!!!!!!!
+// addQueueButton
+// addWatchedButton
 
 // глобальные переменные
-const selectFilm = {};
+let selectFilm;
 
 function activeHomePage() {
   homePageRef.classList.remove('hide');
@@ -35,11 +26,14 @@ function activeHomePage() {
   libraryRef.classList.remove('selectPage');
   homeRef.classList.add('selectPage');
 
-  //   prevRef.addEventListener('click', call_prev_func);
-  //   nextRef.addEventListener('click', call_next_func);
-
+  // повесить слушателя на пагинацию
+  // забрать с 2 js
   // pagination.addEventListener('click', plaginationNavigation);
   // убрать со 2 файла 19 строка
+
+  // слушатель на прев и некст из пагинации
+  //   prevRef.addEventListener('click', call_prev_func);
+  //   nextRef.addEventListener('click', call_next_func);
 
   // удалить ненужных 4 слушателя
   // 1 addRemove from detailPage
@@ -56,13 +50,22 @@ function activeLibraryPage() {
   libraryRef.classList.add('selectPage');
   homeRef.classList.remove('selectPage');
 
+  // btnQueue.classList.add('active-btn');
   // drawQueueFilmList();
 
-  //  пересмотреть скорее всего отпала надобность
-  // queueRef.classList.add('active');
+  // сделал 5 учасник
 
-  // watchedRef.addEventListener('click', fShowWatced);
-  // queueRef.addEventListener('click', fShowQueue);
+  // сделать
+  // добавляет кнопке списка очереди фильмов
+  // эффект выбранной с помощью класса
+
+  // сделать
+  // также вешает слушателей на кнопки
+  // показа очереди фильмов и просмотренных фильмов
+  // btnWatched.addEventListener('click', drawWatchedFilmList);
+  // btnQueue.addEventListener('click', drawQueueFilmList);
+
+  // проверить и пересмотреть далее
 
   // delete 4 listener
   // pagination 1
@@ -72,6 +75,7 @@ function activeLibraryPage() {
   // 3 addRemoveWatched
   // 4 addRemoveQueue
 }
+// movieId, bool;
 
 function activeDetailsPage(movieId, bool) {
   homePageRef.classList.add('hide');
@@ -79,14 +83,16 @@ function activeDetailsPage(movieId, bool) {
   detailsPageRef.classList.remove('hide');
 
   // selectFilm заполнить обьектом в зависимости либ или вотчед
-  selectFilm.movieId = movieId;
+  // selectFilm.movieId = movieId;
+  // selectFilm.itsLibraryFilm = bool;
+
+  const selectFilm = renderFilms.find(el => el.id === movieId);
   selectFilm.itsLibraryFilm = bool;
-
-  // a983975bd7ff651e1c601fb29f627930;
-  // 724989
-
+  console.log(selectFilm);
   showDetails(selectFilm);
 
+  // сделать
+  // слушатель на кнопки добавить/удалить
   // addRemoveWatchedRef.addEventListener('click', addRemove);
   // addRemoveQueueRef.addEventListener('click', addRemove);
 
