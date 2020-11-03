@@ -13,7 +13,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
 
   const listItemRef = document.createElement('li');
   listItemRef.classList.add('movie-list__item');
-  listItemRef.addEventListener('click', movieId => {
+  listItemRef.addEventListener('click', () => {
     activeDetailsPage(movieId, false);
   });
 
@@ -46,7 +46,6 @@ function fetchPopularMoviesList(pageNumber) {
   return fetch(url)
     .then(res => res.json())
     .then(({ results }) => {
-      console.log(results);
       const listMarkup = document.createDocumentFragment();
 
       results.forEach(item => {
