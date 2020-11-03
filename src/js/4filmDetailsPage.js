@@ -33,11 +33,13 @@ function toggleToWatched() {
 }
 
 function showDetails(selectFilm) {
+
   // let img = document.querySelector('#js-detailsImg');
   let img = document.querySelector('.detailsImg');
   console.log(img);
 
   img.setAttribute(
+
     'src',
     `https://image.tmdb.org/t/p/w500${selectFilm.poster_path}`,
   );
