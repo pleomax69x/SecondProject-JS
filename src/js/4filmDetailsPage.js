@@ -69,19 +69,23 @@ function showDetails(selectFilm) {
 }
 
 function monitorButtonStatusText() {
-  let localStorageFilmsQueue = localStorage.getItem('filmsQueue');
-  console.log(localStorageFilmsQueue === null)
-  // console.log(JSON.parse(localStorageFilmsQueue).length === 0);
-  localStorageFilmsQueue === null
+  let localStorageFilmsQueue = localStorage.getItem('filmsQueue');  
+  localStorageFilmsQueue === null 
     ? (addQueueButton.textContent = 'Add to queue')
     : JSON.parse(localStorageFilmsQueue).find(el => el.id === selectFilm.id)
     ? (addQueueButton.textContent = 'Delete from queue')
     : (addQueueButton.textContent = 'Add to queue');
 
   let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
-  localStorageFilmsWatched === null
-    ? (addWatchedButton.textContent = 'Add to watched')
-    : JSON.parse(localStorageFilmsWatched).find(el => el.id === selectFilm.id)
-    ? (addWatchedButton.textContent = 'Delete from watched')
-    : (addWatchedButton.textContent = 'Add to watched');
+  localStorageFilmsWatched === null ? (addWatchedButton.textContent = 'Add to watched') 
+  : JSON.parse(localStorageFilmsWatched).find(el => el.id === selectFilm.id) 
+  ? (addWatchedButton.textContent = 'Delete from watched') 
+  : (addWatchedButton.textContent = 'Add to watched');
 }
+// function addRemove(param1, param2, param3) {
+//   param1 === null
+//     ? (param3.textContent = `Add to ${param2}`)
+//     : JSON.parse(param1).find(el => el.id === selectFilm.id)
+//     ? (param3.textContent = `Delete from (${param2})`)
+//     : (param3.textContent = `Add to ${param2}`);
+// }
