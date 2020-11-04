@@ -70,17 +70,18 @@ function showDetails(selectFilm) {
 
 function monitorButtonStatusText() {
   let localStorageFilmsQueue = localStorage.getItem('filmsQueue');
-
+  console.log(localStorageFilmsQueue === null)
+  // console.log(JSON.parse(localStorageFilmsQueue).length === 0);
   localStorageFilmsQueue === null
     ? (addQueueButton.textContent = 'Add to queue')
-    : JSON.parse(localStorageFilmsQueue).find(el => el.id === selectFilm.id
-    ? addQueueButton.textContent = 'Delete from queue'
-    : addQueueButton.textContent = 'Add to queue');
+    : JSON.parse(localStorageFilmsQueue).find(el => el.id === selectFilm.id)
+    ? (addQueueButton.textContent = 'Delete from queue')
+    : (addQueueButton.textContent = 'Add to queue');
 
   let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
   localStorageFilmsWatched === null
     ? (addWatchedButton.textContent = 'Add to watched')
-    : JSON.parse(localStorageFilmsWatched).find(el => el.id === selectFilm.id
-    ? addWatchedButton.textContent = 'Delete from watched'
-    : addWatchedButton.textContent = 'Add to watched');
+    : JSON.parse(localStorageFilmsWatched).find(el => el.id === selectFilm.id)
+    ? (addWatchedButton.textContent = 'Delete from watched')
+    : (addWatchedButton.textContent = 'Add to watched');
 }
