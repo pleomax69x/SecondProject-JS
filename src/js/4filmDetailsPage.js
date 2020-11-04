@@ -57,9 +57,9 @@ function showDetails(selectFilm) {
   tdGenre.textContent = String(
     genres
       .filter(el =>
-        selectFilm.genre_ids.find(item => el.id === item) ? true : false,
+        selectFilm.genre_ids.find(item => el.id === item ? true : false)
       )
-      .reduce((acc, item) => acc + `${item.name}, `, ''),
+      .reduce((acc, item) => acc + `${item.name}, `, '')
   ).slice(0, -2);
 
   let detailsAboutText = document.querySelector('#js-detailsAboutText');
@@ -70,7 +70,8 @@ function showDetails(selectFilm) {
 
 function monitorButtonStatusText() {
   let localStorageFilmsQueue = localStorage.getItem('filmsQueue');
-
+  console.log(localStorageFilmsQueue === null)
+  // console.log(JSON.parse(localStorageFilmsQueue).length === 0);
   localStorageFilmsQueue === null
     ? (addQueueButton.textContent = 'Add to queue')
     : JSON.parse(localStorageFilmsQueue).find(el => el.id === selectFilm.id)

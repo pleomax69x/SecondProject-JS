@@ -24,7 +24,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
   const imgRef = document.createElement('img');
   imgRef.classList.add('movie-list__image');
   imgRef.src = `https://image.tmdb.org/t/p/original${imgPath}`;
-  // imgRef.dataset.source = imgPath;
+  if(imgPath === null) imgRef.src = '../images/No_image.png';
   imgRef.alt = filmTitle;
 
   const textRef = document.createElement('p');
