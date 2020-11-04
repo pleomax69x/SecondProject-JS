@@ -42,8 +42,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
 
 function fetchPopularMoviesList(pageNumber) {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ru-Ru&page=${pageNumber}`;
-
-  return fetch(url)
+   return fetch(url)
     .then(res => res.json())
     .then(({ results }) => {
       const listMarkup = document.createDocumentFragment();

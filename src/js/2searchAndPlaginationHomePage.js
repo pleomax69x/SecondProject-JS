@@ -76,11 +76,12 @@ function fetchFilms(inputValue, pageNumber) {
 
   let API;
   if (inputValue == '') {
-    API = ` `;
+    API = `https://api.themoviedb.org/3/movie/popular?api_key=a983975bd7ff651e1c601fb29f627930&language=en-US&page=' + ${pageNumber}`;
   } else {
     API = `
-    `;
+    https://api.themoviedb.org/3/search/movie?api_key=a983975bd7ff651e1c601fb29f627930&language=en-US&query=${inputValue}&page=${pageNumber}&include_adult=false`;
   }
+
 
   fetch(API)
     .then(response => response.json())
@@ -109,3 +110,4 @@ function fetchFilms(inputValue, pageNumber) {
 }
 
 form.addEventListener('submit', searchFilms);
+
