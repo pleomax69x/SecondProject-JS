@@ -1,5 +1,6 @@
 .my-film-library-page {
-  height: 100vh;
+  height: 100%;
+  position: relative;
 }
 
 .my-film-library-page__nav {
@@ -11,10 +12,6 @@
   justify-content: center;
 }
 
-.my-film-library-page__container {
-  height: 100%;
-  position: relative;
-}
 
 .my-film-library-page__btn {
   display: block;
