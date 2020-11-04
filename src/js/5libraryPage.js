@@ -1,16 +1,22 @@
-const myFilmListRef = document.querySelector('.movie-list');
+const myFilmListRef = document.querySelector('.js-movie-list');
 const btnWatched = document.querySelector('.my-film-library-page__btn_watched');
 const btnQueue = document.querySelector('.my-film-library-page__btn_queue');
 const plugRef = document.querySelector('.plug');
+
+const clearList = () => {
+  myFilmListRef.innerHTML = '';
+  plugRef.classList.remove('plug-show');
+};
 
 //создает li согласно макета, вешает на нее слушателем функцию activeDetailsPage
 
 const createLibraryCardFunc = (imgPath, filmTitle, movieId, voteAverage) => {
   const listItem = document.createElement('li');
   listItem.classList.add('movie-list__item');
-  listItem.setAttribute('id', movieId);
 
-  listItem.addEventListener('click', activeDetailsPage(movieId, true));
+  listItem.addEventListener('click', () => {
+    activeDetailsPage(movieId, true);
+  });
 
   const link = document.createElement('a');
   link.classList.add('movie-list__link');
@@ -18,7 +24,7 @@ const createLibraryCardFunc = (imgPath, filmTitle, movieId, voteAverage) => {
 
   const img = document.createElement('img');
   img.classList.add('movie-list__image');
-  img.src = imgPath;
+  img.src = `https://image.tmdb.org/t/p/original${imgPath}`;
   img.alt = filmTitle;
 
   const text = document.createElement('p');
@@ -42,22 +48,26 @@ const drawQueueFilmList = () => {
   const queueFilms = localStorage.getItem('filmsQueue');
   const parsedQueueFilms = JSON.parse(queueFilms);
 
-  if ((queueFilms !== null) & (parsedQueueFilms.length !== 0)) {
-    parsedQueueFilms.map(({ id, backdrop_path, title, vote_average }) => {
+  btnQueue.classList.add('active-btn');
+  btnWatched.classList.remove('active-btn');
+
+  if (queueFilms !== null && parsedQueueFilms.length !== 0) {
+    parsedQueueFilms.map(({ backdrop_path, title, id, vote_average }) => {
+      console.log(backdrop_path);
       fragment.appendChild(
-        createLibraryCardFunc(id, backdrop_path, title, vote_average),
+        createLibraryCardFunc(backdrop_path, title, id, vote_average),
       );
     });
 
-    myFilmListRef.innerHTML = '';
+    clearList();
     myFilmListRef.appendChild(fragment);
+
     return;
   }
 
+  myFilmListRef.innerHTML = '';
   plugRef.textContent = '“You do not have to queue movies to watch. Add them.”';
   plugRef.classList.add('plug-show');
-  btnQueue.classList.add('active-btn');
-  btnWatched.classList.remove('active-btn');
 };
 
 //создаем функцию drawWatchedFilmList
@@ -67,22 +77,23 @@ const drawWatchedFilmList = () => {
   const watchedFilms = localStorage.getItem('filmsWatched');
   const parsedWatchedFilms = JSON.parse(watchedFilms);
 
-  if ((watchedFilms !== null) & (parsedWatchedFilms.length !== 0)) {
+  btnQueue.classList.remove('active-btn');
+  btnWatched.classList.add('active-btn');
+
+  if (watchedFilms !== null && parsedWatchedFilms.length !== 0) {
     parsedWatchedFilms.map(({ id, backdrop_path, title, vote_average }) => {
       fragment.appendChild(
         createLibraryCardFunc(backdrop_path, title, id, vote_average),
       );
     });
 
-    myFilmListRef.innerHTML = '';
+    clearList();
     myFilmListRef.appendChild(fragment);
     return;
   }
 
+  myFilmListRef.innerHTML = '';
   plugRef.textContent =
     '“You do not have to watched movies to watch. Add them.”';
   plugRef.classList.add('plug-show');
-
-  btnQueue.classList.remove('active-btn');
-  btnWatched.classList.add('active-btn');
 };
