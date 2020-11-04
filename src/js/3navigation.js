@@ -51,7 +51,7 @@ function activeLibraryPage() {
   libraryRef.classList.add('selectPage');
   homeRef.classList.remove('selectPage');
 
-  // btnQueue.classList.add('active-btn');
+  btnQueue.classList.add('active-btn');
   drawQueueFilmList();
 
   // сделать
