@@ -24,7 +24,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
   const imgRef = document.createElement('img');
   imgRef.classList.add('movie-list__image');
   imgRef.src = `https://image.tmdb.org/t/p/original${imgPath}`;
-  // imgRef.dataset.source = imgPath;
+  if(imgPath === null) imgRef.src = '../images/No_image.png';
   imgRef.alt = filmTitle;
 
   const textRef = document.createElement('p');
@@ -42,8 +42,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
 
 function fetchPopularMoviesList(pageNumber) {
   const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ru-Ru&page=${pageNumber}`;
-
-  return fetch(url)
+   return fetch(url)
     .then(res => res.json())
     .then(({ results }) => {
       const listMarkup = document.createDocumentFragment();

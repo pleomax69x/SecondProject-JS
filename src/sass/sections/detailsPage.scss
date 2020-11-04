@@ -1,62 +1,66 @@
 .main__detailsPages {
-    padding: 24px;
-  }
+  padding: 24px;
+}
 .main__imgContainer {
-    margin-bottom: 20px;
-    width: 100%;
+  margin-bottom: 20px;
+  width: 100%;
 }
 .main__detailsContainer {
-    width: 100%;
+  width: 100%;
 }
 
-.main__detailsTitle{
-    margin-bottom: 20px;
+.main__detailsTitle {
+  margin-bottom: 20px;
 }
-.main__detailsTable{
-    width: 100%;
-    margin-bottom: 36px;
+.main__detailsTable {
+  width: 100%;
+  margin-bottom: 36px;
 }
-.main__detailsTextRow{
-    width: 100%;
-    font-weight: 300;
-    line-height:2rem;
+.main__detailsTextRow {
+  width: 100%;
+  font-weight: 300;
+  line-height: 2rem;
 }
 .main__detailsTextCell {
+
     padding-left: 14px;
     width: 124px;
+
+  
+
 }
 .main__detailsTextRow:nth-child(odd) {
-    background-color: #addad6;    
-}   
-.main__detailsAbout{
-    margin-bottom: 20px;
+  background-color: #addad6;
+}
+.main__detailsAbout {
+  margin-bottom: 20px;
 }
 .main__detailsAboutText {
-    font-weight: 300;
-    line-height: 1.2;
+  font-weight: 300;
+  line-height: 1.2;
 }
 .main__addList {
-    display: none;
+  display: none;
 }
 
 @include screen('tablet') {
-.main__detailsContainer {
+  .main__detailsContainer {
     display: flex;
     justify-content: space-between;
-}
-.main__imgContainer {
+  }
+  .main__imgContainer {
     margin-right: 24px;
     width: 358px;
-    }
-.main__textContainer {
+  }
+  .main__textContainer {
     padding-bottom: 122px;
     width: 350px;
-    }
+  }
 
-.main__detailsTitle {
+  .main__detailsTitle {
     font-size: 20px;
     font-weight: 100;
-    font-family: "Myriad Pro";
+    font-family: 'Roboto';
     color: rgb(55, 44, 72);
     line-height: 1.2; 
     }
@@ -65,22 +69,22 @@
 }
 .main__detailsAbout{
     font-size: 20px;
-    font-family: "Roboto";
+    font-family: 'Roboto';
     color: rgb(55, 44, 72);
     line-height: 1.2;
-    }
-.main__detailsAboutText {
+  }
+  .main__detailsAboutText {
     margin-bottom: 34px;
     font-size: 14px;
-    font-family: "Roboto";
+    font-family: 'Roboto';
     color: rgba(55, 44, 72, 0.541);
     line-height: 1.214;
-}
-.main__addList {
+  }
+  .main__addList {
     display: flex;
     // justify-content: start;
-}
-.main___addButton {
+  }
+  .main___addButton {
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     border: none;
@@ -99,21 +103,21 @@
 .main___addButton:hover {
     cursor: pointer;
     border: 2px solid #77c1bb;
-    box-shadow: 0 0px 5px 1px #77c1bb;;
-}
+    box-shadow: 0 0px 5px 1px #77c1bb;
+  }
 }
 @include screen('desktop') {
-    .main__detailsPages {
-        padding: 26px 44px 30px 66px;
-}
+  .main__detailsPages {
+    padding: 26px 44px 30px 66px;
+  }
 
-    .main__detailsContainer {
-        width: 100%;
-}
-    .main__imgContainer {
-        width: 430px;
-}
-.main__textContainer {
+  .main__detailsContainer {
+    width: 100%;
+  }
+  .main__imgContainer {
+    width: 430px;
+  }
+  .main__textContainer {
     width: 450px;
-}
+  }
 }
