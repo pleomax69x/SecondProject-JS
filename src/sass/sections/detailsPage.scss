@@ -23,6 +23,7 @@
 }
 .main__detailsTextCell {
     padding-left: 14px;
+    width: 124px;
 }
 .main__detailsTextRow:nth-child(odd) {
     background-color: #addad6;    
@@ -59,7 +60,9 @@
     color: rgb(55, 44, 72);
     line-height: 1.2; 
     }
-
+.main__detailsTextCell{
+    width: 134px;
+}
 .main__detailsAbout{
     font-size: 20px;
     font-family: "Roboto";
@@ -85,16 +88,14 @@
     outline: none;
     background-color: inherit;
     margin-right: 14px;
-    padding-bottom: 12px;
-    padding-right: 12px;
+    padding: 12px; 
 }
 .icon {
-    width: 30px;
+    width: 24px;
     height: 30px;
     padding-top: 15px;
     fill:  #77c1bb;
 }
-
 .main___addButton:hover {
     cursor: pointer;
     border: 2px solid #77c1bb;
