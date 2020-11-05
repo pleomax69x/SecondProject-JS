@@ -70,5 +70,5 @@ function fetchGenres() {
   //Забирает жанры и кладёт их в переменную genres
 }
 
-fetchPopularMoviesList(pageNumber);
+// fetchPopularMoviesList(pageNumber);
 fetchGenres();

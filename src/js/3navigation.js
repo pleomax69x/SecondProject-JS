@@ -24,7 +24,7 @@ function activeHomePage() {
 
   libraryRef.classList.remove('selectPage');
   homeRef.classList.add('selectPage');
-
+  pagination.removeEventListener('click', plaginationNavigation);
   pageNumber = 1;
   movieListRef.innerHTML = '';
   pageValue.textContent = pageNumber;

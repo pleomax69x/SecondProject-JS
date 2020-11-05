@@ -1,8 +1,8 @@
-// const addQueueButton = document.querySelector('#js-addQueueButton');
-// const addWatchedButton = document.querySelector('#js-addWatchedButton');
-const addRemoveWatched = document.querySelector ('.addRemoveWatched');
-const addRemoveQueue = document.querySelector ('.addRemoveQueue');
-
+const addRemoveWatched = document.querySelector('.addRemoveWatched');
+const addRemoveQueue = document.querySelector('.addRemoveQueue');
+// селекторы svg
+const svgChangeWatched = document.querySelector('.svg_W_addRemove');
+const svgChangeQueue = document.querySelector('.svg_Q_addRemove');
 
 function toggleToQueue() {
   let filmsQueueArr = [];
@@ -71,9 +71,11 @@ function showDetails(selectFilm) {
 function monitorButtonStatusText() {
   let localStorageFilmsQueue = localStorage.getItem('filmsQueue');
   addRemove(localStorageFilmsQueue, 'queue', addRemoveQueue);
-  
-   let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
+  changeImgQueue();
+
+  let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
   addRemove(localStorageFilmsWatched, 'watched', addRemoveWatched);
+  changeImgWatched();
 }
 
 function addRemove(localStorageKey, textReplacement, selectorElem) {
@@ -84,4 +86,26 @@ function addRemove(localStorageKey, textReplacement, selectorElem) {
     : (selectorElem.textContent = `Add to ${textReplacement}`);
 }
 
-
+function changeImgWatched() {
+  if (addWatchedButton.textContent.trim() === 'Add to watched') {
+    svgChangeWatched.setAttribute(
+      'href',
+      '../images/sprite1.svg#icon-video-camera-svgrepo-com',
+    );
+  } else {
+    svgChangeWatched.setAttribute('href', '../images/sprite1.svg#icon-trash');
+  }
+}
+function changeImgQueue() {
+  if (addQueueButton.textContent.trim() === 'Add to queue') {
+    svgChangeQueue.setAttribute(
+      'href',
+      '../images/sprite1.svg#icon-calendar-plus',
+    );
+  } else {
+    svgChangeQueue.setAttribute(
+      'href',
+      '../images/sprite1.svg#icon-calendar-minus',
+    );
+  }
+}
