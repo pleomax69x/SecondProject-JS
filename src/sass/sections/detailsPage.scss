@@ -82,23 +82,23 @@
   }
   .main__addList {
     display: flex;
-    // justify-content: start;
-  }
+    }
   .main___addButton {
+    font-size: 14px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     border: none;
     border-radius: 30px;
     outline: none;
     background-color: inherit;
-    margin-right: 14px;
-    padding: 12px; 
-}
+    padding: 8px;
+
+ }
 .icon {
     width: 24px;
-    height: 30px;
-    padding-top: 15px;
+    height: 18px;
     fill:  #77c1bb;
+    margin-right: 6px;
 }
 .main___addButton:hover {
     cursor: pointer;
