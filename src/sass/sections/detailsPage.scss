@@ -35,10 +35,32 @@
 .main__detailsAboutText {
   font-weight: 300;
   line-height: 1.2;
+  margin-bottom: 18px;
 }
 .main__addList {
-  display: none;
+  text-align: center;
 }
+.main___addButton {
+  width: 180px;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  background-color: inherit;
+  padding: 8px;
+  border: 2px solid #77c1bb;
+  margin-bottom: 6px;
+}
+
+.icon {
+  width: 24px;
+  height: 18px;
+  fill:  #77c1bb;
+  margin-right: 6px;
+}
+
 
 @include screen('tablet') {
   .main__detailsContainer {
@@ -76,36 +98,27 @@
     font-family: 'Roboto';
     color: rgba(55, 44, 72, 0.541);
     line-height: 1.214;
-  }
+    }
   .main__addList {
     display: flex;
+    
     }
-  .main___addButton {
-    font-size: 14px;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    background-color: inherit;
-    padding: 8px;
- }
-.icon {
-    width: 24px;
-    height: 18px;
-    fill:  #77c1bb;
-    margin-right: 6px;
-}
-.main___addButton:hover {
-    cursor: pointer;
-    border: 2px solid #77c1bb;
-    box-shadow: 0 0px 5px 1px #77c1bb;
-  }
+
+    .main___addButton{
+      margin-right: 2px;
+      border: none;
+    }
+    .main___addButton:hover {
+      cursor: pointer;
+      border: 2px solid #77c1bb;
+      box-shadow: 0 0px 6px 1px #77c1bb;
+    }
+
 }
 @include screen('desktop') {
   .main__detailsPages {
     padding: 26px 44px 30px 66px;
-  }
+     }
 
   .main__detailsContainer {
     width: 100%;
