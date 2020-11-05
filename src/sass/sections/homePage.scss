@@ -66,7 +66,6 @@
 @include screen('tablet') {
   .movie-list__item {
     flex-basis: 49%;
-    justify-content: center;
   }
 
   .movie-list__text {
