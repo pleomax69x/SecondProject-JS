@@ -7,8 +7,11 @@
 }
 
 .movie-list__item {
+  // display: flex;
+  // flex-direction: column;
   flex-basis: 100%;
   position: relative;
+  height: auto;
 }
 
 // .movie-list__link {
@@ -63,7 +66,7 @@
 @include screen('tablet') {
   .movie-list__item {
     flex-basis: 49%;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .movie-list__text {
