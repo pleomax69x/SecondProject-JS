@@ -43,3 +43,7 @@ input[type='radio'].visually-hidden {
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
 }
+
+button {
+  outline: none;
+}
