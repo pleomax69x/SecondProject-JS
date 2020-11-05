@@ -1,12 +1,12 @@
-const addQueueButton = document.querySelector('#js-addQueueButton');
-const addWatchedButton = document.querySelector('#js-addWatchedButton');
+// const addQueueButton = document.querySelector('#js-addQueueButton');
+// const addWatchedButton = document.querySelector('#js-addWatchedButton');
 const addRemoveWatched = document.querySelector ('.addRemoveWatched');
 const addRemoveQueue = document.querySelector ('.addRemoveQueue');
+
 
 function toggleToQueue() {
   let filmsQueueArr = [];
   let localStorageData = localStorage.getItem('filmsQueue');
-  console.log(selectFilm);
   if (localStorageData !== null) {
     filmsQueueArr.push(...JSON.parse(localStorageData));
   }
@@ -35,7 +35,6 @@ function toggleToWatched() {
 }
 
 function showDetails(selectFilm) {
-  // let img = document.querySelector('#js-detailsImg');
   let img = document.querySelector('.detailsImg');
 
   img.setAttribute(
@@ -59,14 +58,13 @@ function showDetails(selectFilm) {
   tdGenre.textContent = String(
     genres
       .filter(el =>
-        selectFilm.genre_ids.find(item => el.id === item ? true : false)
+        selectFilm.genre_ids.find(item => (el.id === item ? true : false)),
       )
-      .reduce((acc, item) => acc + `${item.name}, `, '')
+      .reduce((acc, item) => acc + `${item.name}, `, ''),
   ).slice(0, -2);
 
   let detailsAboutText = document.querySelector('#js-detailsAboutText');
   detailsAboutText.textContent = selectFilm.overview;
-  console.log(selectFilm);
   monitorButtonStatusText();
 }
 
@@ -77,6 +75,7 @@ function monitorButtonStatusText() {
    let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
   addRemove(localStorageFilmsWatched, 'watched', addRemoveWatched);
 }
+
 function addRemove(localStorageKey, textReplacement, selectorElem) {
   localStorageKey === null
     ? (selectorElem.textContent = `Add to ${textReplacement}`)
@@ -84,4 +83,5 @@ function addRemove(localStorageKey, textReplacement, selectorElem) {
     ? (selectorElem.textContent = `Delete from ${textReplacement}`)
     : (selectorElem.textContent = `Add to ${textReplacement}`);
 }
+
 

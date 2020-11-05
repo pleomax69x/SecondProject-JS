@@ -1,6 +1,6 @@
 const myFilmListRef = document.querySelector('.js-movie-list');
-const btnWatched = document.querySelector('.my-film-library-page__btn_watched');
-const btnQueue = document.querySelector('.my-film-library-page__btn_queue');
+// const btnWatched = document.querySelector('.my-film-library-page__btn_watched');
+// const btnQueue = document.querySelector('.my-film-library-page__btn_queue');
 const plugRef = document.querySelector('.plug');
 
 const clearList = () => {
@@ -53,7 +53,6 @@ const drawQueueFilmList = () => {
 
   if (queueFilms !== null && parsedQueueFilms.length !== 0) {
     parsedQueueFilms.map(({ backdrop_path, title, id, vote_average }) => {
-      console.log(backdrop_path);
       fragment.appendChild(
         createLibraryCardFunc(backdrop_path, title, id, vote_average),
       );

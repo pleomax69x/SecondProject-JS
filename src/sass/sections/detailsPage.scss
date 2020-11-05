@@ -1,5 +1,6 @@
 .main__detailsPages {
   padding: 24px;
+  min-height: calc(100vh - 153px);
 }
 .main__imgContainer {
   margin-bottom: 20px;
@@ -22,12 +23,8 @@
   line-height: 2rem;
 }
 .main__detailsTextCell {
-
-    padding-left: 14px;
-    width: 124px;
-
-  
-
+  padding-left: 14px;
+  width: 124px;
 }
 .main__detailsTextRow:nth-child(odd) {
   background-color: #addad6;
@@ -62,12 +59,12 @@
     font-weight: 100;
     font-family: 'Roboto';
     color: rgb(55, 44, 72);
-    line-height: 1.2; 
-    }
-.main__detailsTextCell{
+    line-height: 1.2;
+  }
+  .main__detailsTextCell {
     width: 134px;
-}
-.main__detailsAbout{
+  }
+  .main__detailsAbout {
     font-size: 20px;
     font-family: 'Roboto';
     color: rgb(55, 44, 72);
@@ -92,7 +89,6 @@
     outline: none;
     background-color: inherit;
     padding: 8px;
-
  }
 .icon {
     width: 24px;
