@@ -25,8 +25,11 @@ function activeHomePage() {
   libraryRef.classList.remove('selectPage');
   homeRef.classList.add('selectPage');
 
-  // fetchPopularMoviesList(pageNumber);
-  // fetchGenres();
+  pageNumber = 1;
+  movieListRef.innerHTML = '';
+  pageValue.textContent = pageNumber;
+  prevBtn.classList.add('hidden');
+  fetchPopularMoviesList(pageNumber);
 
   pagination.addEventListener('click', plaginationNavigation);
   form.addEventListener('submit', searchFilms);
@@ -98,6 +101,3 @@ function goUp() {
     behavior: 'smooth',
   });
 }
-
-// console.log(innerWidth);
-// innerWidth < 768;
