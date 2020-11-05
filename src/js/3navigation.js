@@ -8,16 +8,15 @@ const filmLibraryRef = document.querySelector('.js-filmLibrary');
 const detailsPageRef = document.querySelector('#js-detailsPage');
 
 // кнопки watched and queue с 5
-// btnWatched
-// btnQueue
+const btnWatched = document.querySelector('.my-film-library-page__btn_watched');
+const btnQueue = document.querySelector('.my-film-library-page__btn_queue');
 
-//добавить удалить в очередь !!!!!!!!!!!!!!!!!!
-// addQueueButton
-// addWatchedButton
+//добавить удалить в очередь c 4
+const addQueueButton = document.querySelector('#js-addQueueButton');
+const addWatchedButton = document.querySelector('#js-addWatchedButton');
 
 // глобальные переменные
 let selectFilm;
-
 function activeHomePage() {
   homePageRef.classList.remove('hide');
   filmLibraryRef.classList.add('hide');
@@ -26,21 +25,18 @@ function activeHomePage() {
   libraryRef.classList.remove('selectPage');
   homeRef.classList.add('selectPage');
 
-  // повесить слушателя на пагинацию
-  // забрать с 2 js
-  // pagination.addEventListener('click', plaginationNavigation);
-  // убрать со 2 файла 19 строка
+  // fetchPopularMoviesList(pageNumber);
+  // fetchGenres();
 
-  // слушатель на прев и некст из пагинации
-  // сделано в 1 файле
-  //   prevRef.addEventListener('click', call_prev_func);
-  //   nextRef.addEventListener('click', call_next_func);
+  pagination.addEventListener('click', plaginationNavigation);
+  form.addEventListener('submit', searchFilms);
 
-  // удалить ненужных 4 слушателя
-  // 1 addRemove from detailPage
-  // 2 addRemove from detailPage
-  // 3 watched from lib
-  // 4 queue from lib
+  // section detailsPage
+  addWatchedButton.removeEventListener('click', toggleToWatched);
+  addQueueButton.removeEventListener('click', toggleToQueue);
+  // section libraryPage
+  btnWatched.removeEventListener('click', drawWatchedFilmList);
+  btnQueue.removeEventListener('click', drawQueueFilmList);
 }
 
 function activeLibraryPage() {
@@ -54,26 +50,16 @@ function activeLibraryPage() {
   btnQueue.classList.add('active-btn');
   drawQueueFilmList();
 
-  // сделать
-  // добавляет кнопке списка очереди фильмов
-  // эффект выбранной с помощью класса
-
-  // сделать
-  // также вешает слушателей на кнопки
-  // показа очереди фильмов и просмотренных фильмов
-
   btnWatched.addEventListener('click', drawWatchedFilmList);
   btnQueue.addEventListener('click', drawQueueFilmList);
 
-  // delete 4 listener
-  // pagination 1
-  // pagination.removeEventListener('click', plaginationNavigation);
-  // form 2
-  // form.removeEventListener('submit', searchFilms);
-  // 3 addRemoveWatched
-  // 4 addRemoveQueue
+  // section activeHomePage
+  pagination.removeEventListener('click', plaginationNavigation);
+  form.removeEventListener('submit', searchFilms);
+  // section detailsPage
+  addWatchedButton.removeEventListener('click', toggleToWatched);
+  addQueueButton.removeEventListener('click', toggleToQueue);
 }
-// movieId, bool;
 
 function activeDetailsPage(movieId, bool) {
   homePageRef.classList.add('hide');
@@ -83,22 +69,19 @@ function activeDetailsPage(movieId, bool) {
   // selectFilm заполнить обьектом в зависимости либ или вотчед
 
   selectFilm = renderFilms.find(el => el.id === movieId);
-  // selectFilm.itsLibraryFilm = bool;
-  // ????????
+  selectFilm.itsLibraryFilm = bool;
 
   showDetails(selectFilm);
 
-  // слушатель на кнопки добавить/удалить
   addWatchedButton.addEventListener('click', toggleToWatched);
   addQueueButton.addEventListener('click', toggleToQueue);
 
-  // remove 4 listener
-  // pagination 1
-  // pagination.removeEventListener('click', plaginationNavigation);
-  // form 2
-  // form.removeEventListener('submit', searchFilms);
-  // 3 watched from lib
-  // 4 queue from lib
+  // section activeHomePage
+  pagination.removeEventListener('click', plaginationNavigation);
+  form.removeEventListener('submit', searchFilms);
+  // section libraryPage
+  btnWatched.removeEventListener('click', drawWatchedFilmList);
+  btnQueue.removeEventListener('click', drawQueueFilmList);
 }
 
 logoRef.addEventListener('click', activeHomePage);
