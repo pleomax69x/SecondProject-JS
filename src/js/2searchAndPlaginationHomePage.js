@@ -69,21 +69,27 @@ function searchFilms(evt) {
 
 function fetchFilms(inputValue, pageNumber) {
   if (inputValue === '') {
-    return fetchPopularMoviesList();
+    // return fetchPopularMoviesList(pageNumber);
+    fetchPopularMoviesList();
   }
 
-  let API;
-  if (inputValue == '') {
-    API = `https://api.themoviedb.org/3/movie/popular?api_key=a983975bd7ff651e1c601fb29f627930&language=en-US&page=' + ${pageNumber}`;
-  } else {
-    API = `
-    https://api.themoviedb.org/3/search/movie?api_key=a983975bd7ff651e1c601fb29f627930&language=en-US&query=${inputValue}&page=${pageNumber}&include_adult=false`;
-  }
+  // let API;
+  // if (inputValue == '') {
+  //   API = ` `;
+  // } else {
+  //   API = `
+  //   `;
+  // }
+
+  // const API = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ru-Ru&page=${pageNumber}`;
+  const API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${inputValue}&page=${pageNumber}&include_adult=false`;
 
   fetch(API)
     .then(response => response.json())
     .then(data => {
+      console.log(data);
       const arr = data.results;
+      console.log(arr);
       if (inputValue !== '' && arr.length === 0) {
         errorMessage.hidden = false;
         fetchPopularMoviesList();
@@ -91,15 +97,27 @@ function fetchFilms(inputValue, pageNumber) {
 
       // jsList.innerHTML = '';
       movieListRef.innerHTML = '';
-      arr.forEach(el => {
-        if (el.backdrop_path != null) {
-          createCardFunc(el.backdrop_path, el.title, el.id);
-        } else if (el.poster_path != null) {
-          createCardFunc(el.poster_path, el.title, el.id);
-        } else {
-          createCardFunc('logo', el.title, el.id);
-        }
+      // const listMarkup = document.createDocumentFragment();
+      // arr.forEach(el => {
+      //   renderFilms.push(el);
+      //   if (el.backdrop_path != null) {
+      //     createCardFunc(el.backdrop_path, el.title, el.id);
+      //   } else if (el.poster_path != null) {
+      //     createCardFunc(el.poster_path, el.title, el.id);
+      //   } else {
+      //     createCardFunc('logo', el.title, el.id);
+      //   }
+      // });
+
+      const listMarkup = document.createDocumentFragment();
+      arr.forEach(item => {
+        renderFilms.push(item);
+        listMarkup.appendChild(
+          createCardFunc(item.backdrop_path, item.title, item.id),
+        );
       });
+
+      movieListRef.append(listMarkup);
     })
     .catch(error => console.log('ERROR' + error));
 
