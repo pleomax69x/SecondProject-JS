@@ -1,5 +1,8 @@
 // const addQueueButton = document.querySelector('#js-addQueueButton');
 // const addWatchedButton = document.querySelector('#js-addWatchedButton');
+const addRemoveWatched = document.querySelector ('.addRemoveWatched');
+const addRemoveQueue = document.querySelector ('.addRemoveQueue');
+
 
 function toggleToQueue() {
   let filmsQueueArr = [];
@@ -67,23 +70,18 @@ function showDetails(selectFilm) {
 
 function monitorButtonStatusText() {
   let localStorageFilmsQueue = localStorage.getItem('filmsQueue');
-  localStorageFilmsQueue === null
-    ? (addQueueButton.textContent = 'Add to queue')
-    : JSON.parse(localStorageFilmsQueue).find(el => el.id === selectFilm.id)
-    ? (addQueueButton.textContent = 'Delete from queue')
-    : (addQueueButton.textContent = 'Add to queue');
-
-  let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
-  localStorageFilmsWatched === null
-    ? (addWatchedButton.textContent = 'Add to watched')
-    : JSON.parse(localStorageFilmsWatched).find(el => el.id === selectFilm.id)
-    ? (addWatchedButton.textContent = 'Delete from watched')
-    : (addWatchedButton.textContent = 'Add to watched');
+  addRemove(localStorageFilmsQueue, 'queue', addRemoveQueue);
+  
+   let localStorageFilmsWatched = localStorage.getItem('filmsWatched');
+  addRemove(localStorageFilmsWatched, 'watched', addRemoveWatched);
 }
-// function addRemove(param1, param2, param3) {
-//   param1 === null
-//     ? (param3.textContent = `Add to ${param2}`)
-//     : JSON.parse(param1).find(el => el.id === selectFilm.id)
-//     ? (param3.textContent = `Delete from (${param2})`)
-//     : (param3.textContent = `Add to ${param2}`);
-// }
+
+function addRemove(localStorageKey, textReplacement, selectorElem) {
+  localStorageKey === null
+    ? (selectorElem.textContent = `Add to ${textReplacement}`)
+    : JSON.parse(localStorageKey).find(el => el.id === selectFilm.id)
+    ? (selectorElem.textContent = `Delete from ${textReplacement}`)
+    : (selectorElem.textContent = `Add to ${textReplacement}`);
+}
+
+
