@@ -26,9 +26,7 @@ function activeHomePage() {
   homeRef.classList.add('selectPage');
   pagination.removeEventListener('click', plaginationNavigation);
   pageNumber = 1;
-  movieListRef.innerHTML = '';
-  pageValue.textContent = pageNumber;
-  prevBtn.classList.add('hidden');
+  resetPlagination();
   fetchPopularMoviesList(pageNumber);
 
   pagination.addEventListener('click', plaginationNavigation);

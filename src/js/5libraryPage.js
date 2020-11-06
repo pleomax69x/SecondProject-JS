@@ -1,6 +1,4 @@
 const myFilmListRef = document.querySelector('.js-movie-list');
-// const btnWatched = document.querySelector('.my-film-library-page__btn_watched');
-// const btnQueue = document.querySelector('.my-film-library-page__btn_queue');
 const plugRef = document.querySelector('.plug');
 
 const clearList = () => {

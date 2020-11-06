@@ -55,55 +55,43 @@ function searchFilms(evt) {
   errorMessage.hidden = true;
   inputValue = input.value;
   if (inputValue === '') {
-    movieListRef.innerHTML = '';
-    fetchPopularMoviesList();
+    resetPlagination();
+    fetchPopularMoviesList(pageNumber);
   } else {
+    resetPlagination();
     fetchFilms(inputValue, pageNumber);
   }
 }
+function eraseErroMesage() {
+  errorMessage.hidden = true;
+}
+
+function resetPlagination() {
+  movieListRef.innerHTML = '';
+  pageValue.textContent = pageNumber;
+  prevBtn.classList.add('hidden');
+}
+
 // конец нового кода
 
 function fetchFilms(inputValue, pageNumber) {
   if (inputValue === '') {
-    // return fetchPopularMoviesList(pageNumber);
     fetchPopularMoviesList();
   }
 
-  // let API;
-  // if (inputValue == '') {
-  //   API = ` `;
-  // } else {
-  //   API = `
-  //   `;
-  // }
-
-  // const API = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ru-Ru&page=${pageNumber}`;
   const API = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&query=${inputValue}&page=${pageNumber}&include_adult=false`;
 
   fetch(API)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
       const arr = data.results;
-      console.log(arr);
       if (inputValue !== '' && arr.length === 0) {
         errorMessage.hidden = false;
+        setTimeout(eraseErroMesage, 3000);
         fetchPopularMoviesList(pageNumber);
       }
 
-      // jsList.innerHTML = '';
       movieListRef.innerHTML = '';
-      // const listMarkup = document.createDocumentFragment();
-      // arr.forEach(el => {
-      //   renderFilms.push(el);
-      //   if (el.backdrop_path != null) {
-      //     createCardFunc(el.backdrop_path, el.title, el.id);
-      //   } else if (el.poster_path != null) {
-      //     createCardFunc(el.poster_path, el.title, el.id);
-      //   } else {
-      //     createCardFunc('logo', el.title, el.id);
-      //   }
-      // });
 
       const listMarkup = document.createDocumentFragment();
       arr.forEach(item => {

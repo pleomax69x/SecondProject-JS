@@ -16,9 +16,6 @@
   height: auto;
 }
 
-// .movie-list__link {
-// }
-
 .movie-list__link:hover::after {
   opacity: 0;
 }
@@ -143,9 +140,9 @@
   align-items: center;
   flex-direction: column;
   min-height: 68px;
-  margin: 0 0 14px;
   background-color: #f3f6f6;
   box-shadow: 0 5px 9px 1px rgba(0, 0, 0, 0.23);
+  margin-bottom: 15px;
 }
 
 #homePage__search-input {
@@ -226,10 +223,6 @@
 
   .homePage__text {
     left: 12px;
-  }
-
-  #homePage__search {
-    margin: 0 0 30px;
   }
 
   #homePage__search-input {

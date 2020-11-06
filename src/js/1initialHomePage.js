@@ -46,7 +46,7 @@ function fetchPopularMoviesList(pageNumber) {
     .then(res => res.json())
     .then(({ results }) => {
       const listMarkup = document.createDocumentFragment();
-
+      inputValue = '';
       results.forEach(item => {
         renderFilms.push(item);
         listMarkup.appendChild(
@@ -70,5 +70,4 @@ function fetchGenres() {
   //Забирает жанры и кладёт их в переменную genres
 }
 
-// fetchPopularMoviesList(pageNumber);
 fetchGenres();
