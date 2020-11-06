@@ -1,0 +1,37 @@
+@mixin font($fs, $fw, $lh, $ff: $main-font) {
+  font-family: $ff;
+  font-size: $fs;
+  font-weight: $fw;
+  line-height: $lh;
+}
+
+@mixin screen($size) {
+  $desktop-xl: '(min-width: 1680px)'; // Переменная со значением desktop-xl размера
+  $desktop: '(min-width: 1024px)'; // Переменная со значением desktop размера
+  $tablet: '(min-width: 768px)'; // Переменная со значением tablet размера
+  $mobile: '(max-width: 767px)'; // Переменная со значением mobile размера
+  $tablet-to-desktop: '(min-width: 768px) and (max-width: 1279px)';
+
+  @if $size == desktop-xl {
+    @media only screen and #{$desktop-xl} {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media only screen and #{$desktop} {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media only screen and #{$tablet} {
+      @content;
+    }
+  } @else if $size == mobile {
+    @media only screen and #{$mobile} {
+      @content;
+    }
+  } @else if $size == tablet-to-desktop {
+    @media only screen and #{$tablet-to-desktop} {
+      @content;
+    }
+  }
+
+}

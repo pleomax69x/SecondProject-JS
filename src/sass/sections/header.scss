@@ -1,0 +1,99 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px 22px 22px;
+  height: 66px;
+  background-color: rgb(119, 193, 187);
+}
+.nav-list {
+  display: flex;
+  margin-right: 12px;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0px;
+  font-weight: 500;
+  color: #372c48;
+  font-family: 'Roboto';
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+
+.nav-list__item:not(:last-child) {
+  margin-right: 3px;
+}
+.site-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.sit-logo__img {
+  width: 20px;
+  margin-right: 10px;
+}
+.site-logo__text {
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 16px;
+  color: #372c48;
+  font-weight: 500;
+  font-family: 'Roboto';
+  visibility: hidden;
+  display: none;
+}
+@include screen('tablet') {
+  .site-logo__text {
+    visibility: visible;
+    display: contents;
+  }
+}
+
+.nav-list__item {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  width: 122px;
+  opacity: 0.7;
+  transition: 0.3;
+
+  &:hover {
+    opacity: 1;
+    transition: 0.3;
+  }
+}
+
+.nav-list__item:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-list__item:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  bottom: -16px;
+  background-color: #372c48;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s linear;
+}
+// добавлять онклик по хоме и либрари
+.selectPage {
+  opacity: 1;
+  transition: 0.3;
+}
+
+.selectPage:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 3px;
+  bottom: -16px;
+  background-color: #372c48;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s linear;
+}
