@@ -9,15 +9,15 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://luxplanjay.github.io/gulp-starter-kit",
+  "homepage": "https://pleomax69x.github.io/SecondProject-JS",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luxplanjay/gulp-starter-kit.git"
+    "url": "git+https://github.com/pleomax69x/SecondProject-JS.git"
   },
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Igor Stuk <independent.frd@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luxplanjay/gulp-starter-kit/issues"
+    "url": "https://github.com/pleomax69x/SecondProject-JS"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
