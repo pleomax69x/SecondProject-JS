@@ -90,22 +90,22 @@ function changeImgWatched() {
   if (addWatchedButton.textContent.trim() === 'Add to watched') {
     svgChangeWatched.setAttribute(
       'href',
-      '../images/sprite1.svg#icon-video-camera-svgrepo-com',
+      './images/sprite1.svg#icon-video-camera-svgrepo-com',
     );
   } else {
-    svgChangeWatched.setAttribute('href', '../images/sprite1.svg#icon-trash');
+    svgChangeWatched.setAttribute('href', './images/sprite1.svg#icon-trash');
   }
 }
 function changeImgQueue() {
   if (addQueueButton.textContent.trim() === 'Add to queue') {
     svgChangeQueue.setAttribute(
       'href',
-      '../images/sprite1.svg#icon-calendar-plus',
+      './images/sprite1.svg#icon-calendar-plus',
     );
   } else {
     svgChangeQueue.setAttribute(
       'href',
-      '../images/sprite1.svg#icon-calendar-minus',
+      './images/sprite1.svg#icon-calendar-minus',
     );
   }
 }
